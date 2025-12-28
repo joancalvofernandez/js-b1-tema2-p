@@ -25,11 +25,28 @@
 */
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+//Definició Classe
+class Triangle {
+  constructor (base, height) {
+    this.base = base;
+    this.height = height;
+  }
+}
+//Definició constants
+const myTriangle1 = new Triangle(10,5);
+const myTriangle2 = new Triangle(15,7);
+//modificacions demanades
+myTriangle2.base = myTriangle1.height;
+myTriangle1.height = myTriangle2.height;
 
+//funció càlcul area
+function area (param) {
 
+  return (param.base*param.height)/2;
 
-
-
+}
+const areaMyTriangle1 = area(myTriangle1);
+const areaMyTriangle2 = area(myTriangle2);
 
 /**
  * TEST
