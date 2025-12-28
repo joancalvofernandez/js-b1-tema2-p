@@ -18,8 +18,8 @@
    a partir d'un paràmetre rebut amb informació sobre els anys d'antiguitat del vehicle (podeu considerar directament l'any 2023 a efectes de càlcul).
   D'altra banda, implementar-li un getter (que anomenarem getCarDescription) que ens permeti obtenir la marca, model i cilidrada del vehicle directament.
 */
-/**
-* Do not uncomment this class, this is just informative to show the structure of the class
+
+// Do not uncomment this class, this is just informative to show the structure of the class
 class Car {
   constructor(brand, model, displacement, horsePower, year) {
     this.brand = brand;
@@ -28,16 +28,24 @@ class Car {
     this.horsePower = horsePower;
     this.year = year;
   }
-}
-*/
+
+
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
 
+//Redefinim l'any basat en l'antiguitat del vehicle
+set carAntiguaty(antiguaty) {
 
+    this.year = 2023 - antiguaty;
+}
 
+get getCarDescription(){
 
+  return `${this.brand} ${this.model} ${this.displacement}cc`;
 
+}
 
+}
 /**
  * TEST
  * The purpose of this code is purely for TESTING PURPOSES, 
