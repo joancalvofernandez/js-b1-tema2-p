@@ -39,9 +39,47 @@
 */
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
 
+class Triangle {
+  constructor (base, height, rightTriangle) {
+    this.base = base;
+    this.height = height;
+    this.rightTriangle = rightTriangle;
+  }
 
+get areaTriangle() {
 
+  return (this.base*this.height)/2;
 
+}
+
+get rightHypotenuse(){
+
+  return this.rightTriangle === true ? hypotenuse(this.base,this.height): undefined;
+
+}
+
+get rightPerimeter(){
+
+  return this.rightTriangle === true ? this.base+this.height+hypotenuse(this.base,this.height): undefined;
+
+}
+
+}
+
+function hypotenuse(b, h){
+//def¡nim una funció per a calcular el quadrat d'un número, equivalent a Math.pow(numero, 2);
+  function square(numero){
+
+    return numero * numero;
+
+  }
+  //recollim els quadrats de base i altura i els sumem
+  let resultat = square(b) + square(h);
+
+  //fem l'arrel quadrada amb la funció java corresponent i retornem el valor resultant
+  return Math.sqrt(resultat);
+
+}
 
 /**
  * TEST
