@@ -20,6 +20,8 @@
 */
 
 // Do not uncomment this class, this is just informative to show the structure of the class
+
+//Hi ha ERROR en enunciat perquè si no es descomenta la classe i s'inlou set i get dins la clau de classe, dona error.
 class Car {
   constructor(brand, model, displacement, horsePower, year) {
     this.brand = brand;
