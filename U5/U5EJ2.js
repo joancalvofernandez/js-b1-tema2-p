@@ -52,7 +52,7 @@ static compareAntiguaty (car1, car2){
 static maxDisplacement(cotxes) {
 	let maxCar = cotxes[0];
 
-	for (let i = 1; i < cotxes.length; i++) {
+	for (let i = 0; i < cotxes.length; i++) {
 		if (cotxes[i].displacement > maxCar.displacement) {
 			maxCar = cotxes[i];
 		}
@@ -65,7 +65,7 @@ static maxDisplacement(cotxes) {
 
 cv2kw() {
 
-		return this.horsePower * 0.736;
+	return this.horsePower * 0.736;
 
 }
 

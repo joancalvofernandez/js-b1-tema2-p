@@ -38,11 +38,94 @@
 	Finalment, crea almenys 3 objectes de la classe Triangle i fes 3 trucades a aquests nous mètodes.
 */
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+class Triangle {
+  constructor (base, height, rightTriangle) {
+    this.base = base;
+    this.height = height;
+    this.rightTriangle = rightTriangle;
+  }
 
+get areaTriangle() {
 
+  return (this.base*this.height)/2;
 
+}
 
+get rightHypotenuse(){
 
+  return this.rightTriangle === true ? hypotenuse(this.base,this.height): undefined;
+
+}
+
+get rightPerimeter(){
+
+  return this.rightTriangle === true ? this.base+this.height+hypotenuse(this.base,this.height): undefined;
+
+}
+
+//mètode de classe perímetre dos triangles rectangles units.
+
+static rightTriangleUnion(triangle1, triangle2){
+
+	return parseInt(triangle1.rightPerimeter + triangle2.rightPerimeter + Math.abs(triangle1.height-triangle2.height));
+
+}
+// el área de la superficie de un polígono formado por triángulos es la suma de las áreas de estos triángulos. Usamos el getter
+static areaPoligon(pol){
+
+	let total = 0;
+
+	for (let i = 0; i < pol.length; i++) {
+		
+			total = total + parseInt(pol[i].areaTriangle);
+	}
+	return total;
+
+}
+
+//Mètodo de instància per a saber si un triangle es equilater quan height = (base*√3) / 2 )
+ 
+isEquilateral (){
+
+	return this.height == this.base * Math.sqrt(3)/2 ? true : false;
+}
+
+} //Final de la classe
+
+function hypotenuse(b, h){
+//def¡nim una funció per a calcular el quadrat d'un número, equivalent a Math.pow(numero, 2);
+  function square(numero){
+
+    return numero * numero;
+
+  }
+  //recollim els quadrats de base i altura i els sumem
+  let resultat = square(b) + square(h);
+
+  //fem l'arrel quadrada amb la funció java corresponent i retornem el valor resultant
+  return Math.sqrt(resultat);
+
+}
+
+const myEquilateral = new Triangle(10, 10*Math.sqrt(3)/2, false);
+const myTriangle1 = new Triangle(10, 5, true);
+const myTriangle2 = new Triangle(15, 7, true);
+
+//perímetre dos triangles rectangles units.
+const unioTriangles = Triangle.rightTriangleUnion(myTriangle1, myTriangle2);
+console.log("El perímetre exterior del dos triangles es:", unioTriangles);
+
+//area poligon
+
+const poligons = [myEquilateral, myTriangle1, myTriangle2];
+
+const areaTotal = Triangle.areaPoligon(poligons);
+
+console.log("Àrea total", areaTotal);
+
+//equilater? 
+
+console.log("Es equilater?",myEquilateral.isEquilateral());
 
 /**
  * TEST
