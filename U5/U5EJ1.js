@@ -39,9 +39,11 @@ class Planet {
 	}
 	static planetsWithRings(planets){
 		let planetsRingsArray = new Array;
+		console.log("Planetas con anillos:");
 		planets.forEach(function(planet){
 			if(planet.hasRings){
 				planetsRingsArray.push(planet);
+				console.log(`- ${planet.name} (Diámetro: ${planet.diameter} km)`);
 			} 
 		});	
 		return planetsRingsArray;
@@ -49,8 +51,31 @@ class Planet {
 }
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+//Definició de constants de planetes
 
+const myPlanet1 = new Planet("Mercury", 58344000, false, 4878);
+const myPlanet2 = new Planet("Venus", 107712000, false, 12100);
+const myPlanet3 = new Planet("Earth", 149600000, false, 12756 );
+const myPlanet4 = new Planet("Mars", 227392000, false, 6787);
+const myPlanet5 = new Planet("Jupiter", 777920000, true, 142984);
+const myPlanet6 = new Planet("Saturn", 1427184000, true, 120536);
+const myPlanet7 = new Planet("Uranus", 2600000000, true, 51108);
+const myPlanet8 = new Planet("Neptune", 4300000000, true, 49538);
 
+//apartat 2
+const starName = myPlanet1.nameOftheStar();
+console.log(starName);
+
+//apartat 3
+
+// Crear un array con todos los planetas
+const myPlanets = [myPlanet1, myPlanet2, myPlanet3, myPlanet4, myPlanet5, myPlanet6, myPlanet7, myPlanet8];
+
+const PWR = Planet.planetsWithRings(myPlanets);
+
+//apartat 4
+
+const venusToSarturn = Planet.distanceBetweenPlanets(myPlanet2, myPlanet6);
 
 /**
  * TEST
