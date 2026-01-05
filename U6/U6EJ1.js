@@ -38,10 +38,21 @@ class Planet {
 }
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+//un text pla en format JSON que contingui la descripció d'un Array amb almenys tres objectes Planet definits mitjançant la classe donada
+const myPlanet1 = new Planet("Mercury", 58344000, false, 4878);
+const myPlanet2 = new Planet("Venus", 107712000, false, 12100);
+const myPlanet3 = new Planet("Earth", 149600000, false, 12756 );
 
+const planetes = [myPlanet1, myPlanet2, myPlanet3];
 
+const myJSON = JSON.stringify(planetes);
+console.log(myJSON);
 
+// text a un Array d'objectes Planet i introdueix en un nou Array anomenat planetsBTE tots els que resultin de passar aquest Array al mètode de classe biggerThanEarth
+const planetesFromJson = JSON.parse(myJSON);
+console.log(planetesFromJson);
 
+const planetsBTE = Planet.biggerThanEarth(planetesFromJson);
 /**
  * TEST
  * The purpose of this code is purely for TESTING PURPOSES, 

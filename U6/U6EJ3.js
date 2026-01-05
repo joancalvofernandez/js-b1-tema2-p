@@ -22,10 +22,38 @@
 const myJSON = '[{"base":10,"height":5,"rightTriangle":true},{"base":10,"height":8.660254037844386,"rightTriangle":false},{"base":15,"height":7,"rightTriangle":true}]';
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+class Triangle {
+  constructor (base, height, rightTriangle) {
+    this.base = base;
+    this.height = height;
+    this.rightTriangle = rightTriangle;
+  }
+
+
+//Class methods per a obtindre en un array aquells que són equilaters
+
+	static onlyEquilateral(equilaters){
+		let equilatersArray = new Array;
+		equilaters.forEach(function(equilater){
+			if(equilater.height == equilater.base * Math.sqrt(3)/2){
+				equilatersArray.push(equilater);
+			} 
+		});	
+		return equilatersArray;
+	}
 
 
 
 
+} //Final de la classe
+// Definir array d'objectes a partir de JSON
+const myTriangles = JSON.parse(myJSON);
+//console.log(myTriangles);
+
+const equilateralsTriangles = Triangle.onlyEquilateral(myTriangles);
+//console.log(equilateralsTriangles);
+
+const newTrianglesJSON = JSON.stringify(equilateralsTriangles);
 
 /**
  * TEST

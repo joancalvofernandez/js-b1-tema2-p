@@ -21,12 +21,41 @@
 	- Passar aquest nou Array a un text pla JSON en una nova constant anomenada newCarsJSON.
 */
 
-const myJSON= '[{"brand":"Ford","model":"Mustang Boss 429","displacement":7000,"horsePower":375,"year":1969},{"brand":"BMW","model":"520d","displacement":1980,"horsePower":136,"year":2002},{"brand":"Mercedes-Benz","model":"280 SLC","displacement":2746,"horsePower":136,"year":1979}]';
+const myJSON = '[{"brand":"Ford","model":"Mustang Boss 429","displacement":7000,"horsePower":375,"year":1969},{"brand":"BMW","model":"520d","displacement":1980,"horsePower":136,"year":2002},{"brand":"Mercedes-Benz","model":"280 SLC","displacement":2746,"horsePower":136,"year":1979}]';
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
 
+class Car {
+  constructor(brand, model, displacement, horsePower, year) {
+    this.brand = brand;
+    this.model = model;
+    this.displacement = displacement;
+    this.horsePower = horsePower;
+    this.year = year;
+  }
 
+// MÉTODO DE CLASSE
+//majors de 25 anys
+//Class methods
+	static menys25Anys(cotxes){
+    const currentYear = new Date().getFullYear();
+		let cotxesArray = new Array;
+		cotxes.forEach(function(cotxe){
+			if(currentYear - cotxe.year < 25){
+				cotxesArray.push(cotxe);
+			} 
+		});	
+		return cotxesArray;
+	}
 
+} //FInal de la classe
+
+// Passar JSON rebut a array d'objectes
+const myCars = JSON.parse(myJSON);
+console.log(myCars);
+const lessThan25 = Car.menys25Anys(myCars);
+
+const newCarsJSON = JSON.stringify(lessThan25);
 
 /**
  * TEST
